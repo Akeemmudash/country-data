@@ -1,7 +1,4 @@
-// import { useState } from "react";
-
-//  import { useEffect } from "react";
-export default function Search({
+function SearchBar({
   id,
   textSize,
   placeholder,
@@ -109,3 +106,5 @@ function ResultEl({
     ""
   );
 }
+
+export default SearchBar;
