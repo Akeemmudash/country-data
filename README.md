@@ -1,29 +1,42 @@
-# 🌍 Country Facts
+# 🌍 Countries Fact Website
 
-A simple and responsive web app that displays information about countries around the world. Built with React and Tailwind CSS using data from the REST Countries API and Wikipedia.
+A modern, responsive web app that displays key facts and short descriptions about countries around the world. Built with React and Tailwind CSS, using data from the REST Countries API and Wikipedia API.
+
+---
 
 ## ✨ Features
 
-- Search for any country
-- View flag, capital, population, region, and more
-- Read a short description from Wikipedia
-- Clean UI and mobile-friendly layout
+- 🔍 Search for any country
+- 🌍 Filter countries by region
+- 🏳️ View country flags and key facts (capital, population, region)
+- 📚 Get short country descriptions from Wikipedia
+- 🌗 Dark/light mode toggle (optional)
+- 📱 Fully responsive design
 
-## 🚀 Tech Stack
+---
 
-- React + create-react-app
-- Tailwind CSS
-- Framer-motion
-- Tanstack Query
-- React router dom
-- REST Countries API
-- Wikipedia Summary API
+## 🛠️ Tech Stack
 
+- **Frontend**: React (with Vite)
+- **Styling**: Tailwind CSS
+- **Animation**: Framer motion
+- **APIs**:
+  - [REST Countries API](https://restcountries.com/)
+  - [Wikipedia Summary API](https://en.wikipedia.org/api/rest_v1/)
 
-## 🔧 Setup
+---
+
+## 📦 Installation
 
 ```bash
-git clone https://github.com/your-username/country-facts.git
-cd country-facts
+# 1. Clone the repository
+git clone https://github.com/akeemmudash/country-data.git
+
+# 2. Navigate to the project folder
+cd country-data
+
+# 3. Install dependencies
 npm install
+
+# 4. Start the development server
 npm run dev
