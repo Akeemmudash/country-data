@@ -1,5 +1,7 @@
+import Dashboard from "./components/Dashboard";
+
 function App() {
-  return <div>Refactor start</div>;
+  return <Dashboard />;
 }
 
 export default App;
