@@ -43,7 +43,6 @@ export default function CardList() {
           region={country.region}
           population={country.population}
           flag={country.flags}
-          isVertical={isVertical}
         />
       ))}
     </div>
