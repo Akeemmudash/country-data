@@ -1,7 +1,12 @@
 import Dashboard from "./components/Dashboard";
+import AppMainContextProvider from "./providers/AppMainContextProvider";
 
 function App() {
-  return <Dashboard />;
+  return (
+    <AppMainContextProvider>
+      <Dashboard />
+    </AppMainContextProvider>
+  );
 }
 
 export default App;
