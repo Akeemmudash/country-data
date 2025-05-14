@@ -27,19 +27,27 @@ export default function Select({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Handle Keyboard Navigation
+  const focusOptionNode = (index) =>
+    optionRefs.current[index] && optionRefs.current[index].focus();
+
   useEffect(() => {
     function handleKeyDown(event) {
       if (!isOpen) return;
 
       if (event.key === "ArrowDown") {
-        setHighlightedIndex((prev) => (prev + 1) % options.length);
+        setHighlightedIndex((prev) => {
+          const newIndex = (prev + 1) % options.length;
+          focusOptionNode(newIndex);
+          return newIndex;
+        });
       } else if (event.key === "ArrowUp") {
-        setHighlightedIndex(
-          (prev) => (prev - 1 + options.length) % options.length
-        );
+        setHighlightedIndex((prev) => {
+          const newIndex = (prev - 1 + options.length) % options.length;
+          focusOptionNode(newIndex);
+          return newIndex;
+        });
       } else if (event.key === "Enter" && highlightedIndex !== -1) {
-        setFunction(options[highlightedIndex].id);
+        setFunction(options[highlightedIndex]);
         setIsOpen(false);
       } else if (event.key === "Escape") {
         setIsOpen(false);
@@ -90,16 +98,20 @@ export default function Select({
             options.map((option, index) => (
               <li
                 key={option.id}
+                tabIndex={1}
                 ref={(el) => (optionRefs.current[index] = el)}
                 onClick={() => {
                   setFunction(option);
                   setIsOpen(false);
                 }}
-                onMouseEnter={() => setHighlightedIndex(index)}
+                onMouseEnter={() => {
+                  setHighlightedIndex(index);
+                  focusOptionNode(index);
+                }}
                 role="option"
                 aria-selected={option}
                 className={cn(
-                  "px-4 py-2",
+                  "px-4 py-2 focus:bg-gray-100 outline-none",
                   highlightedIndex === index && "bg-gray-100"
                 )}
               >
