@@ -109,7 +109,7 @@ export default function Select({
                       selectedItem?.id ?? "",
                       setFunction
                     )
-                  : option?.value}
+                  : option?.name || option.value}
               </li>
             ))
           )}
