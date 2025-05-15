@@ -1,10 +1,13 @@
 import Dashboard from "./components/Dashboard";
-import AppMainContextProvider from "./providers/AppMainContextProvider";
+import AppMainContextProvider from "./providers/AppMainProvider";
+import CountryDataProvider from "./providers/CountryDataProvider";
 
 function App() {
   return (
     <AppMainContextProvider>
-      <Dashboard />
+      <CountryDataProvider>
+        <Dashboard />
+      </CountryDataProvider>
     </AppMainContextProvider>
   );
 }

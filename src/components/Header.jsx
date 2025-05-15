@@ -1,7 +1,7 @@
 import React from "react";
-import Searchbar from "./Searchbar";
-import RegionFilter from "./RegionFilter";
 import CardTypeDisplayToggler from "./CardTypeDisplayToggler";
+import RegionFilter from "./RegionFilter";
+import Searchbar from "./Searchbar";
 
 export default function Header() {
   return (

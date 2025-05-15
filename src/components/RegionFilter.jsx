@@ -1,6 +1,6 @@
 import React from "react";
 import Select from "./Select";
-import { useAppMainContext } from "../hooks/useAppMainContext";
+import { useCountriesDataContext } from "../hooks/useCountriesDataContext";
 
 const options = [
   { value: "Africa", id: "0" },
@@ -11,7 +11,9 @@ const options = [
   { value: null, id: "5", name: "All Countries" },
 ];
 function RegionFilter() {
-  const { selectedRegion, setSelectedRegion } = useAppMainContext();
+  const { selectedRegion, setSelectedRegion, hasSearchTerm } =
+    useCountriesDataContext();
+  if (hasSearchTerm) return null;
   return (
     <Select
       options={options}

@@ -1,14 +1,18 @@
 import React from "react";
-import Header from "./Header";
 import CardList from "./CardList";
+import Header from "./Header";
+import Sidebar from "./Sidebar";
 
 const Dashboard = () => {
   return (
-    <div className="space-y-12 font-inter">
-      <Header />
-      <main className="container">
-        <CardList />
-      </main>
+    <div className="flex font-inter relative">
+      <Sidebar />
+      <div className="h-screen flex-1">
+        <Header />
+        <main className="container py-10  h-[calc(100vh-155px)] overflow-y-auto">
+          <CardList />
+        </main>
+      </div>
     </div>
   );
 };
