@@ -10,16 +10,23 @@ A modern, responsive web app that displays key facts and short descriptions abou
 - 🌍 Filter countries by region
 - 🏳️ View country flags and key facts (capital, population, region)
 - 📚 Get short country descriptions from Wikipedia
-- 🌗 Dark/light mode toggle (optional)
 - 📱 Fully responsive design
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: React (with Vite)
+- **Frontend**: React JS
 - **Styling**: Tailwind CSS
 - **Animation**: Framer motion
+- **Server State**: Tanstack Query
+- **State Management**: React Context API
+- **Data Fetching**: Axios
+- **Icons**: Lucide Icons
+- **Routing**: React Router
+- **Deployment**: Netlify
+- **Version Control**: Git & GitHub
+
 - **APIs**:
   - [REST Countries API](https://restcountries.com/)
   - [Wikipedia Summary API](https://en.wikipedia.org/api/rest_v1/)
@@ -40,3 +47,4 @@ npm install
 
 # 4. Start the development server
 npm run dev
+```

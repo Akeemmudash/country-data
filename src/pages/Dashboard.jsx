@@ -1,7 +1,7 @@
 import React from "react";
-import CardList from "./CardList";
-import Header from "./Header";
-import Sidebar from "./Sidebar";
+import CardList from "../components/CardList";
+import Header from "../components/Header";
+import Sidebar from "../components/Sidebar";
 
 const Dashboard = () => {
   return (
