@@ -1,7 +1,7 @@
 import { restCountriesInstance } from "./restCountriesInstance";
 
-const getCountriesByRegion = (region) => {
-  return restCountriesInstance.get(`/region/${region}`);
+const getCountriesByRegion = async (region) => {
+  return await restCountriesInstance.get(`region/${region}`);
 };
 
 export default getCountriesByRegion;

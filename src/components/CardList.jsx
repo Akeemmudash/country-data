@@ -1,39 +1,40 @@
-import { useCountries } from "../hooks/useCountries";
-import { useFilteredCountries } from "../hooks/useFilteredCountries";
+import { motion } from "framer-motion";
 import { useAppMainContext } from "../hooks/useAppMainContext";
+import { cn } from "../utils/cn";
 import Card from "./Card";
 import Spinner from "./Spinner";
-import { cn } from "../utils/cn";
+import { useCountriesDataContext } from "../hooks/useCountriesDataContext";
 
 export default function CardList() {
-  const { selectedRegion, isVertical } = useAppMainContext();
+  const { isVertical } = useAppMainContext();
+  const { data, isErrored, isLoading, error, searchBy } =
+    useCountriesDataContext();
 
-  const {
-    data: allCountries,
-    isPending,
-    isError,
-    error,
-  } = useCountries({ enabled: !selectedRegion?.value });
-  console.log(!!selectedRegion?.value);
-  const { data: FiteredData } = useFilteredCountries(selectedRegion?.value, {
-    enabled: !!selectedRegion?.value,
-  });
-
-  const data = FiteredData || allCountries;
+  console.log("cardList", data?.data, searchBy);
   const countryList = data?.data.slice(0, 30) || [];
 
-  if (isPending)
+  if (isLoading) {
     return (
-      <div className="flex justify-center  h-[calc(100vh-280px)] text-gray-700 items-center">
+      <div className="flex justify-center items-center h-full text-gray-700">
         <Spinner />
       </div>
     );
-  if (isError) return <div className="">{error.message}</div>;
+  }
+
+  if (isErrored) {
+    return (
+      <div className="text-red-500 text-center p-4">
+        {error?.message || "Something went wrong"}
+      </div>
+    );
+  }
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2 gap-5",
-        isVertical && "vertical grid-cols-2 md:grid-cols-4 lg:grid-cols-5"
+        "grid grid-cols-1 md:grid-cols-2 gap-5 overflow-y-auto",
+        isVertical && "vertical grid-cols-2 md:grid-cols-4 "
       )}
     >
       {countryList.map((country) => (
@@ -45,6 +46,6 @@ export default function CardList() {
           flag={country.flags}
         />
       ))}
-    </div>
+    </motion.div>
   );
 }
