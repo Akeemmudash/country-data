@@ -1,14 +1,18 @@
-import Dashboard from "./components/Dashboard";
 import AppMainContextProvider from "./providers/AppMainProvider";
 import CountryDataProvider from "./providers/CountryDataProvider";
+import React from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-function App() {
+function App({ children }) {
+  const queryClient = new QueryClient();
   return (
-    <AppMainContextProvider>
-      <CountryDataProvider>
-        <Dashboard />
-      </CountryDataProvider>
-    </AppMainContextProvider>
+    <React.StrictMode>
+      <QueryClientProvider client={queryClient}>
+        <AppMainContextProvider>
+          <CountryDataProvider>{children}</CountryDataProvider>
+        </AppMainContextProvider>
+      </QueryClientProvider>
+    </React.StrictMode>
   );
 }
 
