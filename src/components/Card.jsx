@@ -12,9 +12,16 @@ export default function Card({ name, capital, region, population, flag }) {
           />
         </div>
         <div className="flex flex-col flex-1">
-          <h2 className="text-base font-medium mb-2">{name.common}</h2>
-          <p className="text-sm font-light mb-1">{capital}</p>
-          <p className="font-light"> {population.toLocaleString()}</p>
+          <h2 className="text-base font-medium mb-2 cursor-pointer hover:underline">
+            {name.common}
+          </h2>
+          <p className="text-sm font-light mb-1">
+            <b className="text-stone-400">Capital:</b> {capital}
+          </p>
+          <p className="text-sm font-light mb-2">
+            <b className="text-stone-400">Population:</b>{" "}
+            {population.toLocaleString()}
+          </p>
           <p className="text-gray-400 mt-auto">{region}</p>
         </div>
       </div>
