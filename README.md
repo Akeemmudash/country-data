@@ -1,4 +1,4 @@
-# 🌍 Countries Fact Website
+# 🌍 Countries Fact Website(in progress)
 
 A modern, responsive web app that displays key facts and short descriptions about countries around the world. Built with React and Tailwind CSS, using data from the REST Countries API and Wikipedia API.
 
